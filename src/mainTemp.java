@@ -4,7 +4,7 @@ public class mainTemp {
 
 	public static void main(String[] args) {
 		
-		int opc = 0, pos, temperatura;
+		int opc = 0, pos, temperatura, removido;
 		
 		ListaTemperatura lt = new ListaTemperatura();
 		
@@ -35,17 +35,24 @@ public class mainTemp {
 				lt.AdicionaPosicao(temperatura, pos);
 				break;
 				
-			case 4:
-				JOptionPane.showMessageDialog(null, "O elemento removido foi: " +lt.RemoveFinal());
+			case 4: removido = +lt.RemoveFinal();
+				if(removido != 999999999) {
+					JOptionPane.showMessageDialog(null, "O elemento removido foi: " + removido );
+				}
 				break;
 				
-			case 5: 
-				JOptionPane.showMessageDialog(null, "O elemento removido foi: "+lt.RemoveInicio());
+			case 5: removido = +lt.RemoveInicio();
+				if(removido != 999999999) {
+					JOptionPane.showMessageDialog(null, "O elemento removido foi: " + removido );
+				}	
 				break;
 				
 			case 6:
 				pos = Integer.parseInt(JOptionPane.showInputDialog("Digite uma posição para remoção"));
-				JOptionPane.showMessageDialog(null, "O elemento removido foi: " + lt.removePosicao(pos));
+				removido = lt.removePosicao(pos);
+				if(removido != 999999999) {
+					JOptionPane.showMessageDialog(null, "O elemento removido foi: " + removido );
+				}	
 				break;
 				
 			case 7:

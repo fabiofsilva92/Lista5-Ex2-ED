@@ -14,16 +14,14 @@ public class ListaTemperatura {
 		nohTempInicio = noh;
 	}
 
+	//Utilizando recursividade
 	public void AdicionaFinal(int temperatura) {
 
 		node noh = new node(temperatura);
 		if (nohTempInicio == null) {
 			nohTempInicio = noh;
 		} else {
-			node aux = nohTempInicio;
-			while (aux.prox != null) {
-				aux = aux.prox;
-			}
+			node aux = encontrarUltimo(nohTempInicio); //função que irá utilizar recursividade
 			aux.prox = noh;
 		}
 	}
@@ -61,6 +59,7 @@ public class ListaTemperatura {
 		int i = 0;
 		if(nohTempInicio == null) {
 			JOptionPane.showMessageDialog(null, "Lista vazia");
+			i = 999999999;
 		}
 		else {
 			i = nohTempInicio.dado;
@@ -74,6 +73,7 @@ public class ListaTemperatura {
 		
 		if(nohTempInicio ==null) {
 			JOptionPane.showMessageDialog(null, "Lista vazia");
+			i = 999999999;
 		}
 		else if(nohTempInicio.prox == null) {
 			i = nohTempInicio.dado;
@@ -133,6 +133,7 @@ public class ListaTemperatura {
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Lista vazia");
+			i = 999999999;
 			return i;
 		}
 		
@@ -152,6 +153,14 @@ public class ListaTemperatura {
 		else {
 			JOptionPane.showMessageDialog(null, "Lista vazia");
 		}
+	}
+	
+	//Utilizando recursividade para encontrar
+	public node encontrarUltimo(node aux) {
+		if (aux.prox != null){
+			return encontrarUltimo(aux.prox);
+		}
+		return aux;
 	}
 	
 	
