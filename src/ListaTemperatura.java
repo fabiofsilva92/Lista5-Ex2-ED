@@ -25,6 +25,13 @@ public class ListaTemperatura {
 			aux.prox = noh;
 		}
 	}
+	//Utilizando recursividade direta para encontrar o ultimo elemento
+	public node encontrarUltimo(node aux) {
+		if (aux.prox != null){
+			return encontrarUltimo(aux.prox);
+		}
+		return aux;
+	}
 	
 	
 	public void AdicionaPosicao(int temperatura, int pos) {
@@ -155,13 +162,7 @@ public class ListaTemperatura {
 		}
 	}
 	
-	//Utilizando recursividade para encontrar
-	public node encontrarUltimo(node aux) {
-		if (aux.prox != null){
-			return encontrarUltimo(aux.prox);
-		}
-		return aux;
-	}
+
 	
 	
 	
